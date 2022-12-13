@@ -1,8 +1,9 @@
 import * as React from 'react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const App = () => {
     const [count, setCount] = useState(0)
+    const [isMounted, setIsMounted] = useState(false)
 
     const handleDecrement = () => {
         setCount((count) => count - 1)
@@ -12,16 +13,21 @@ const App = () => {
         setCount((count) => count + 1)
     }
 
-    if (typeof window === 'undefined') {
-        return <h1>Loading...</h1>
-    }
+    useEffect(() => {
+        setIsMounted(true)
+    }, [])
 
     return (
         <>
-            <button onClick={handleDecrement}>-1</button>
-            <span>  {count}  </span>
-            <button onClick={handleIncrement}>+1</button>
-            <h1>My Name is {window.localStorage.getItem('My Name')}</h1>
+            {!isMounted && <h1>Loading...</h1>}
+            {isMounted &&
+                <>
+                    <button onClick={handleDecrement}>-1</button>
+                    <span>  {count}  </span>
+                    <button onClick={handleIncrement}>+1</button>
+                    <h1>My Name is {window.localStorage.getItem('My Name')}</h1>
+                </>
+            }
         </>
     )
 }
