@@ -5,6 +5,7 @@ const Html = ({ children }) => {
         <html>
         <head>
             <title>58000% 알아보기</title>
+            <script defer src="/build/main.js"></script>
         </head>
 
         <body>
