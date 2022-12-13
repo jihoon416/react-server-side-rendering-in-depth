@@ -9,7 +9,7 @@ const render = async (res) => {
     const names = await veryLongApiCall()
 
     const html = ReactDOMServer.renderToString(
-        <Html>
+        <Html names={names}>
             <App names={names}/>
         </Html>,
     )

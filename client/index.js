@@ -4,5 +4,5 @@ import App from '../src/App'
 
 ReactDOM.hydrateRoot(
     document.getElementById('root'),
-    <App/>,
+    <App names={window.MAEUM_DAERO_OBJECT.names}/>,
 )
