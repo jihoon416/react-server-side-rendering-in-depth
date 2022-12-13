@@ -19,15 +19,11 @@ const App = () => {
 
     return (
         <>
+            <button onClick={handleDecrement}>-1</button>
+            <span>  {count}  </span>
+            <button onClick={handleIncrement}>+1</button>
             {!isMounted && <h1>Loading...</h1>}
-            {isMounted &&
-                <>
-                    <button onClick={handleDecrement}>-1</button>
-                    <span>  {count}  </span>
-                    <button onClick={handleIncrement}>+1</button>
-                    <h1>My Name is {window.localStorage.getItem('My Name')}</h1>
-                </>
-            }
+            {isMounted && <h1>My Name is {window.localStorage.getItem('My Name')}</h1>}
         </>
     )
 }
